@@ -165,12 +165,12 @@ function carrega_agendamentos(disciplina) {
 
 					if(diaDoServidor > finalEtapa1){
 						var opcao1 = "\
-							<option id='1etapa' disabled value='1'>"+ETAPA[0].etapas+" -Travado</option>\
+							<option id='1etapa' disabled value='1'>"+ETAPA[0].etapas+" ("+ETAPA[0].valorDaEtapa+" pontos) -Travado</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao1);
 					}else{
 						var opcao1 = "\
-							<option id='1etapa' value='1'>"+ETAPA[0].etapas+"</option>\
+							<option id='1etapa' value='1'>"+ETAPA[0].etapas+" ("+ETAPA[0].valorDaEtapa+" pontos)</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao1);
 					}
@@ -179,12 +179,12 @@ function carrega_agendamentos(disciplina) {
 
 					if(diaDoServidor > finalEtapa2){
 						var opcao2 = "\
-							<option id='2etapa' disabled value='2'>"+ETAPA[1].etapas+" -Travado</option>\
+							<option id='2etapa' disabled value='2'>"+ETAPA[1].etapas+" ("+ETAPA[1].valorDaEtapa+" pontos) -Travado</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao2);
 					}else{
 						var opcao2 = "\
-							<option id='2etapa' value='2'>"+ETAPA[1].etapas+"</option>\
+							<option id='2etapa' value='2'>"+ETAPA[1].etapas+" ("+ETAPA[1].valorDaEtapa+" pontos)</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao2);
 					}
@@ -193,12 +193,12 @@ function carrega_agendamentos(disciplina) {
 
 					if(diaDoServidor > finalEtapa3){
 						var opcao3 = "\
-							<option id='3etapa' disabled value='3'>"+ETAPA[2].etapas+" -Travado</option>\
+							<option id='3etapa' disabled value='3'>"+ETAPA[2].etapas+" ("+ETAPA[2].valorDaEtapa+" pontos) -Travado</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao3);
 					}else{
 						var opcao3 = "\
-							<option id='3etapa' value='3'>"+ETAPA[2].etapas+"</option>\
+							<option id='3etapa' value='3'>"+ETAPA[2].etapas+" ("+ETAPA[2].valorDaEtapa+" pontos)</option>\
 						";
 						$("#colocarAsOpcoes").append(opcao3);
 						
