@@ -1100,7 +1100,6 @@ function INICIO(){
 
 		/*Envento para salvar e enviar um PIN para o servidor*/
 		$(document).on("tap", ".circle-number", function(){
-
 			var valor = parseInt( $(this).attr("data-number") );
 			console.log(valor);
 			if(tamanho < 3){
@@ -1130,9 +1129,10 @@ function INICIO(){
 			if(pin.length == 4 && confirmaPin.length == 4){
 
 				if( pin.join("") == confirmaPin.join("") ){
-					
+
 					//var page = prefix+"adx/mobile/professor/escrita/pin.php";
-					var page = prefix+unidade+"mobile/professor/escrita/pin.php";
+					var page = prefix+unidade+"/mobile/professor/escrita/pin.php";
+					alert(page);
 					$.ajax({
 							url: page,
 							data: { 
