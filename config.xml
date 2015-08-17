@@ -29,6 +29,8 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
-
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 
 </widget>
