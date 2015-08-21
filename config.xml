@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.fluxsoftwares.adxpro"
-        versionCode = "101" 
-        version     = "1.0.1" >
+        versionCode = "200" 
+        version     = "1.0.0" >
     <name>ADX Pro</name>
     <description>
         Sistema de Gestão Acadêmico Rede de Ensino Doctum - Aplicativo do Professor.
