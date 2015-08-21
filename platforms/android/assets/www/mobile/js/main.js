@@ -1132,7 +1132,6 @@ function INICIO(){
 
 					//var page = prefix+"adx/mobile/professor/escrita/pin.php";
 					var page = prefix+unidade+"/mobile/professor/escrita/pin.php";
-					alert(page);
 					$.ajax({
 							url: page,
 							data: { 
