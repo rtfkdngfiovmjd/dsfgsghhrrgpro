@@ -122,15 +122,15 @@ function destroi_secao(){
 		//localStorage.clear();
 
 		if( device.platform == "iOS" ){
-			var icone="<a href='itms-appss://itunes.apple.com/br/app/apple-store/id375380948?mt=8'><img style='height:100px;' src='images/app-store.png'></a>";
+			var icone="<a href='itms-appss://itunes.apple.com/br/app/apple-store/id1031558723?mt=8'><img style='height:100px;' src='images/app-store.png'></a>";
 		}
 		else if( device.platform == "Android" ){
-			var icone="<a href='market://details?id=com.huebradeveloper.imagensdezueira'><img style='height:100px;' src='images/google-play-logo.jpg'></a>";
+			var icone="<a href='market://details?id=com.fluxsoftwares.adxpro'><img style='height:100px;' src='images/google-play-logo.jpg'></a>";
 		}
 		else{
 			var icone="\
-			<a href='market://details?id=com.huebradeveloper.imagensdezueira'><img style='height:100px;' src='images/google-play-logo.jpg'></a>\
-			<a href='itms-appss://itunes.apple.com/br/app/apple-store/id375380948?mt=8'><img style='height:100px;' src='images/app-store.png'></a>\
+			<a href='market://details?id=com.fluxsoftwares.adxpro'><img style='height:100px;' src='images/google-play-logo.jpg'></a>\
+			<a href='itms-appss://itunes.apple.com/br/app/apple-store/id1031558723?mt=8'><img style='height:100px;' src='images/app-store.png'></a>\
 			";
 		}
 		var msgErroVersao="\
@@ -335,7 +335,7 @@ function destroi_secao(){
 	function esperaDisciplinas(){
 		if( AGENDAMENTOS === null){
 			var load = "\
-			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 30%;'>\
+			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 100%;'>\
 	    	<div class='modal-content'>\
 				<div class='preloader-wrapper big active' style='margin-left: 40%;'>\
 				    <div class='spinner-layer spinner-blue-only'>\
