@@ -179,8 +179,8 @@ $(document).on("tap", ".circle-number-login", function (){
 		tamanho++;
 	}
 	if(pin.length == 4){
-		if( md5( pin.join("") ) == LOGIN.pin ){
-			//alert("acertou");
+		if(md5( pin.join("") ) == LOGIN.pin ){
+			// alert("acertou");
 			pin = Array();
 			tamanho=0;
 
