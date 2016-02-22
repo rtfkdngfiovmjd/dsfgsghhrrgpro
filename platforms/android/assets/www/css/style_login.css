@@ -176,3 +176,7 @@ box-shadow: 0 1px 0 0 #4b86b4;
 }
 .circle-number-login:hover{
   border-color: #0a91d8;
+}
+.dropdown-content {
+  height: 350px !important;
+}

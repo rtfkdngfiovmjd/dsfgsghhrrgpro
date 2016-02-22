@@ -212,11 +212,11 @@ $(document).on("tap", ".circle-number-login", function (){
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-$(document).ready(onDeviceReady);
+// $(document).ready(onDeviceReady);
 function onDeviceReady() {
-	// if( device.platform == "iOS" ){
-	// 	$("nav").css("padding-top","20px").css("height", "70px");
-	// }
+	if( device.platform == "iOS" ){
+		$("nav").css("padding-top","20px").css("height", "70px");
+	}
 
 	if(LOGIN !== null){
 	

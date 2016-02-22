@@ -242,6 +242,9 @@ function destroi_secao(){
 					});
 				}
 				/* ------------------------------------------------------- */
+				if(LOGIN.periodo_letivo != dados["periodo_letivo"]) {
+					LOGIN.periodo_letivo = dados["periodo_letivo"];
+				}
 				LOGIN.dia = dados["data"];
 				LOGIN.sid = dados["sid"];
 				localStorage.setItem("login", JSON.stringify(LOGIN));
@@ -1059,7 +1062,7 @@ function INICIO(){
 				return false;
 			}
 			//var page = prefix+"adx/mobile/professor/escrita/pin.php";
-			var page = prefix+unidade+"mobile/professor/escrita/pin.php";
+			var page = prefix+unidade+"/mobile/professor/escrita/pin.php";
 			$.ajax({
 					url: page,
 					data: { 
