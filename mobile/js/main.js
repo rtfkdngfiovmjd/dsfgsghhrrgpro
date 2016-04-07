@@ -338,7 +338,7 @@ function destroi_secao(){
 	function esperaDisciplinas(){
 		if( AGENDAMENTOS === null){
 			var load = "\
-			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 30%;'>\
+			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 100%;'>\
 	    	<div class='modal-content'>\
 				<div class='preloader-wrapper big active' style='margin-left: 40%;'>\
 				    <div class='spinner-layer spinner-blue-only'>\

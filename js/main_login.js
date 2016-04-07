@@ -69,7 +69,7 @@ function telaDePinLogin(){
 
 			var tela = "\
 			<div style='text-align:center;' class='tituloDoComando'></div>\
-			<div style='margin-top:50px;'>\
+			<div style='margin-top:0px;'>\
 				<div class='row quatroOpcoes'>\
 					<div class='col s3 teclado'>\
 						<i class='mdi-image-panorama-fisheye primeiraBola'></i>\
