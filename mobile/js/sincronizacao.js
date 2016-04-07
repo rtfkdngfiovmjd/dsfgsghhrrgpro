@@ -112,7 +112,7 @@ function enviarDados(){
 
 function reConectar(){
 	//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
-	var page = prefix+unidade+"mobile/professor/leitura/testeConecao.php";
+	var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 	//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
 	$.ajax({
 			url: page,

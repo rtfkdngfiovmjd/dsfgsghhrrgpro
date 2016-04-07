@@ -122,15 +122,15 @@ function destroi_secao(){
 		//localStorage.clear();
 
 		if( device.platform == "iOS" ){
-			var icone="<a href='itms-appss://itunes.apple.com/br/app/apple-store/id375380948?mt=8'><img style='height:100px;' src='images/app-store.png'></a>";
+			var icone="<a href='itms-appss://itunes.apple.com/br/app/apple-store/id1031558723?mt=8'><img style='height:100px;' src='images/app-store.png'></a>";
 		}
 		else if( device.platform == "Android" ){
-			var icone="<a href='market://details?id=com.huebradeveloper.imagensdezueira'><img style='height:100px;' src='images/google-play-logo.jpg'></a>";
+			var icone="<a href='market://details?id=com.fluxsoftwares.adxpro'><img style='height:100px;' src='images/google-play-logo.jpg'></a>";
 		}
 		else{
 			var icone="\
-			<a href='market://details?id=com.huebradeveloper.imagensdezueira'><img style='height:100px;' src='images/google-play-logo.jpg'></a>\
-			<a href='itms-appss://itunes.apple.com/br/app/apple-store/id375380948?mt=8'><img style='height:100px;' src='images/app-store.png'></a>\
+			<a href='market://details?id=com.fluxsoftwares.adxpro'><img style='height:100px;' src='images/google-play-logo.jpg'></a>\
+			<a href='itms-appss://itunes.apple.com/br/app/apple-store/id1031558723?mt=8'><img style='height:100px;' src='images/app-store.png'></a>\
 			";
 		}
 		var msgErroVersao="\
@@ -242,6 +242,9 @@ function destroi_secao(){
 					});
 				}
 				/* ------------------------------------------------------- */
+				if(LOGIN.periodo_letivo != dados["periodo_letivo"]) {
+					LOGIN.periodo_letivo = dados["periodo_letivo"];
+				}
 				LOGIN.dia = dados["data"];
 				LOGIN.sid = dados["sid"];
 				localStorage.setItem("login", JSON.stringify(LOGIN));
@@ -1059,7 +1062,7 @@ function INICIO(){
 				return false;
 			}
 			//var page = prefix+"adx/mobile/professor/escrita/pin.php";
-			var page = prefix+unidade+"mobile/professor/escrita/pin.php";
+			var page = prefix+unidade+"/mobile/professor/escrita/pin.php";
 			$.ajax({
 					url: page,
 					data: { 
