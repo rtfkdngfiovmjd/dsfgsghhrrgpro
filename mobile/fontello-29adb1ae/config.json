@@ -1,0 +1,58 @@
+{
+  "name": "pencil",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "8b80d36d4ef43889db10bc1f0dc9a862",
+      "css": "user",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c1f1975c885aa9f3dad7810c53b82074",
+      "css": "lock",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "750058837a91edae64b03d60fc7e81a7",
+      "css": "ellipsis-vert",
+      "code": 59398,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "w3nzesrlbezu6f30q7ytyq919p6gdlb6",
+      "css": "home",
+      "code": 59399,
+      "src": "typicons"
+    },
+    {
+      "uid": "667b873c8422e4cab006df8422cb51c5",
+      "css": "pencil",
+      "code": 59394,
+      "src": "iconic"
+    },
+    {
+      "uid": "7e2642b7a42728c7d9ce5558c3f8461b",
+      "css": "chat",
+      "code": 59395,
+      "src": "iconic"
+    },
+    {
+      "uid": "fe4b70ed76eb9a48877632032b33c942",
+      "css": "calendar",
+      "code": 59396,
+      "src": "zocial"
+    },
+    {
+      "uid": "e36d581e4f2844db345bddc205d15dda",
+      "css": "group",
+      "code": 59397,
+      "src": "elusive"
+    }
+  ]
+}
