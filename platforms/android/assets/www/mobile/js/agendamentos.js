@@ -155,9 +155,9 @@ function carrega_agendamentos(disciplina) {
 					var dataEtapa2 = ETAPA[1].dataLimite;
 					var finalEtapa2 = new Date( dataEtapa2.split("-")[0], (dataEtapa2.split("-")[1])-1, dataEtapa2.split("-")[2], 0, 0, 0, 0 );
 
-					var dataEtapa3 = ETAPA[2].dataLimite;
+					/*var dataEtapa3 = ETAPA[2].dataLimite;
 					var finalEtapa3 = new Date( dataEtapa3.split("-")[0], (dataEtapa3.split("-")[1])-1, dataEtapa3.split("-")[2], 0, 0, 0, 0 );
-				
+				*/
 
 					var diaDoServidor = new Date( LOGIN.dia.split("-")[0], (LOGIN.dia.split("-")[1])-1, LOGIN.dia.split("-")[2], 0, 0, 0, 0 );				
 
@@ -191,7 +191,7 @@ function carrega_agendamentos(disciplina) {
 
 
 
-					if(diaDoServidor > finalEtapa3){
+					/*if(diaDoServidor > finalEtapa3){
 						var opcao3 = "\
 							<option id='3etapa' disabled value='3'>"+ETAPA[2].etapas+" ("+ETAPA[2].valorDaEtapa+" pontos) -Travado</option>\
 						";
@@ -202,7 +202,7 @@ function carrega_agendamentos(disciplina) {
 						";
 						$("#colocarAsOpcoes").append(opcao3);
 						
-					}
+					}*/
 						
 
 				$("#addAgendamentoFormulario").on("submit", function(){
@@ -260,7 +260,7 @@ function carrega_agendamentos(disciplina) {
 					// do android o app seleciona uma etapa travada por padrao ....
 					var valor1 = $("#1etapa").html();
 					var valor2 = $("#2etapa").html();
-					var valor3 = $("#3etapa").html();
+					//var valor3 = $("#3etapa").html();
 
 					
 					
@@ -272,10 +272,10 @@ function carrega_agendamentos(disciplina) {
 						toast("Selecione uma etapa disponível.", 5000);
 						return false;
 					}
-					else if(valor3.search("-Travado") != -1 && stringEtapa == valor3){
+					/*else if(valor3.search("-Travado") != -1 && stringEtapa == valor3){
 						toast("Selecione uma etapa disponível.", 5000);
 						return false;
-					}
+					}*/
 
 
 					var somaEtapa = 0;

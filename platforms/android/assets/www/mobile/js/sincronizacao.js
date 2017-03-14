@@ -1,7 +1,7 @@
 
 var url;
 var urlEscrita;
-
+//console.log(JSON.stringify(LOGIN));
 
 function enviarDados(){
 	if(historico_agendamento.length >0){
@@ -111,14 +111,15 @@ function enviarDados(){
 
 
 function reConectar(){
-	//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
+	//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 	var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 	//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
 	$.ajax({
 			url: page,
 			data: { 
-				codUsuario: LOGIN["professor"],
-				id: LOGIN["id"]
+				codUsuario: LOGIN.professor,
+				id: LOGIN.id,
+				versao: VERSAO
 			}, 
 			dataType: "json",
 			method: "post",
@@ -141,12 +142,14 @@ function sincronizacao(inicializacao){
 	// url = prefix+"adx/mobile/professor/leitura/";
 	// urlEscrita = prefix+"adx/mobile/professor/escrita/";
 	url = prefix+unidade+"/mobile/professor/leitura/";
+	//url = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/";
+	//urlEscrita = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/escrita/";
+	//url = "52.32.236.139/adx/unidades/caratinga/mobile/professor/leitura/";
 	urlEscrita = prefix+unidade+"/mobile/professor/escrita/";
 	// url = prefix+"/mobile/professor/leitura/testeConecao.php";
 	// urlEscrita = prefix+"/mobile/professor/leitura/testeConecao.php";
 
 	enviarDados();
-
 
 	//AGENDAMENTOS
 	function sincroniza_agendamentos (){
@@ -170,7 +173,7 @@ function sincronizacao(inicializacao){
 				$('#modalAgendamentos').closeModal();
 			}
 		}).fail(function(a,b,c){
-			console.log(a);
+			console.log(JSON.stringify(a))
 			console.log(b);
 			console.log(c);
 		});
@@ -278,6 +281,7 @@ function sincronizacao(inicializacao){
 			url: url+"frequencia.php",
 			data: {semestre: LOGIN.periodo_letivo, login: LOGIN.professor, sid:LOGIN.sid}, 
 			dataType: "json",
+			async:false,
 			method: "post",
 		}).done(function(data){
 			/* em caso da seção expirar */

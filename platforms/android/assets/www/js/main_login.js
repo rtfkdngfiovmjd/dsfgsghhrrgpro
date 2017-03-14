@@ -7,6 +7,7 @@ var prefix = "https://adx.doctum.edu.br/adx/unidades/";
 //var prefix = "http://adx.doctum.edu.br/adx/unidades/adx_teste_ctga";
 
 var LOGIN = JSON.parse(localStorage.getItem('login'));
+
 var unidade;
 if (LOGIN !== null) {
 	unidade = LOGIN.unidade;
@@ -16,6 +17,7 @@ if (LOGIN !== null) {
 // VERIFICA SE O USUARIO ESTA CONECTADO
 function isOnlineLogin(){
 
+	//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 	//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php"; //TESTE!!
 	var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php"; //OFICIAL
 	//var page = prefix+"/mobile/professor/leitura/testeConecao.php"; //teste basse de dados oficial
@@ -305,6 +307,7 @@ function onDeviceReady() {
 			//url: prefix+"adx/mobile/professor/login.php",
 			url: prefix+unidade+"/mobile/professor/login.php",
 			//url: prefix+"/mobile/professor/leitura/testeConecao.php",
+			//url:"http://192.168.10.240/user/joaovitor/adx/mobile/professor/login.php",
 			data: {
 				user: user,
 				senha: senha,
@@ -324,6 +327,7 @@ function onDeviceReady() {
 				else{
 					dados['unidade']=unidade;
 					LOGIN=dados;
+					//console.log(JSON.stringify(dados));
 					localStorage.setItem('login',JSON.stringify(dados));
 					
 					if( device.platform == "iOS" ){

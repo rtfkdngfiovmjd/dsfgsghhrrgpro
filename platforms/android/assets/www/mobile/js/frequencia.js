@@ -1,10 +1,9 @@
 
 
 function carrega_frequencia (disciplina){
-	
 	modifica_tela("selecionaData");
+	codDisciplina = null;
 	codDisciplina = $(disciplina).attr('id').split("_")[1];
-	
 
 	var today = new Date();
 	var dd = ("0" + today.getDate()).slice(-2);
@@ -43,12 +42,13 @@ function carrega_frequencia (disciplina){
 	$(document).on("tap", ".irChamada", function(){
 		//$(".picker__holder").hide(); NAO SEI PQ TINHA ISSO
 
-
-		var idFrequencia= $(disciplina).attr('id').split("_")[1];
+		//var idFrequencia= $(disciplina).attr('id').split("_")[1];
+		var idFrequencia = codDisciplina;
 		var button_get__value = $( '#button__api-get--value' );
 		var input_get__value = $( '#demo__api-get--value' ).pickadate();
 		var picker_get__value = input_get__value.pickadate( 'picker' );
 		var dataSelecionada = picker_get__value.get('value', 'dd/mm/yyyy');
+
 
 		if(dataSelecionada === null || dataSelecionada == ""){
 			if( $('.toast').length != 1 ){
@@ -58,16 +58,12 @@ function carrega_frequencia (disciplina){
 		}
 
 		for(dataDeAula in FREQUENCIA[idFrequencia].datas){
-			var controle = 0;
+			var controle = 1;
 			if(dataSelecionada == dataDeAula){
 				controle = 0;
 				break;
 			}
-			else{
-				controle = 1;
-			}
 		}
-
 
 		// controle de etapas que estao ativas
 		var dataEtapa1 = ETAPA[0].dataLimite;
@@ -84,13 +80,13 @@ function carrega_frequencia (disciplina){
 		var dataFimEtapa2 = ETAPA[1].dataFim;
 		var fimEtapa2 = new Date( dataFimEtapa2.split("-")[0], (dataFimEtapa2.split("-")[1])-1, dataFimEtapa2.split("-")[2], 0, 0, 0, 0 );
 
-		var dataEtapa3 = ETAPA[2].dataLimite;
+		/*var dataEtapa3 = ETAPA[2].dataLimite;
 		var finalEtapa3 = new Date( dataEtapa3.split("-")[0], (dataEtapa3.split("-")[1])-1, dataEtapa3.split("-")[2], 23, 59, 59, 0 );
 		var dataInicioEtapa3 = ETAPA[2].dataInicio;
 		var inicioEtapa3 = new Date( dataInicioEtapa3.split("-")[0], (dataInicioEtapa3.split("-")[1])-1, dataInicioEtapa3.split("-")[2], 0, 0, 0, 0 );
 		var dataFimEtapa3 = ETAPA[2].dataFim;
 		var fimEtapa3 = new Date( dataFimEtapa3.split("-")[0], (dataFimEtapa3.split("-")[1])-1, dataFimEtapa3.split("-")[2], 0, 0, 0, 0 );
-
+*/
 
 
 		var diaDeHoje = new Date();
@@ -111,28 +107,24 @@ function carrega_frequencia (disciplina){
 		}
 		else if(dataSelecionada2 < fimEtapa2){
 			if(diaDeHoje > finalEtapa2){
-				if(dataSelecionada2 > inicioEtapa3){}
-				else{
+				//if(dataSelecionada2 > inicioEtapa3){}
+				//else{
 					if( $('.toast').length != 1 ){
 						toast("Data está bloqueada pela etapa.", 4000);
 					}
 					return false;
-				}
+				//}
 			}
 		}
-		else if(dataSelecionada2 < fimEtapa3){
+		/*else if(dataSelecionada2 < fimEtapa3){
 			if(diaDeHoje > finalEtapa3){
 				if( $('.toast').length != 1 ){
 					toast("Data está bloqueada pela etapa.", 4000);
 				}
 				return false;
 			}
-		}
-
-
-
-
-
+		}*/
+// COMENTADO AS PARTES DA 3ª ETAPA, PQ AGR SÃO SO 2
 		if(controle == 1){
 			if( $('.toast').length != 1 ){
 				toast("Professor não possui aula nesse dia.", 4000);

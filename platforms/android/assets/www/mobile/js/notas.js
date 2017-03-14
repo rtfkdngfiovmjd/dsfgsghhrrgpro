@@ -3,7 +3,6 @@ function carrega_notas (disciplina){
 	modifica_tela("disciplinasNotas");
 
 
-
 	var disc = "\
 	<div class='row center-align'>\
 		<div class='col s6'>\
@@ -29,6 +28,7 @@ function carrega_notas (disciplina){
 
 		for(etapa in AGENDAMENTOS[idNotas].etapas){
 			cod= AGENDAMENTOS[idNotas].etapas[etapa];
+
 			etapaComEspaco = etapa.replace(" ","");//caso a secretaria insira espacos na descricao da ETAPA
 			var imprimeEtapas = "\
 				<h5>"+etapa+"</h5>\
@@ -64,9 +64,8 @@ function carrega_notas (disciplina){
 
 					var diaDoServidor = new Date( LOGIN.dia.split("-")[0], (LOGIN.dia.split("-")[1])-1, LOGIN.dia.split("-")[2], 0, 0, 0, 0 );				
 
-
 					//CONTROLE DE ACESSO CASO AGENDAMENTO SER DO PI - NAO PODE EDITAR NOTAS
-					if(cont['pi'] == "Sim" || diaDoServidor > finalEtapa){
+					if(cont['pi'] == "Sim" || (diaDoServidor > finalEtapa && cont['liberado'] == 'nao')){
 						var link = "\
 						<p style='color: #9e9e9e;' href='#' class='collection-item' data-idetapaNotas='"+etapa+"' data-idagendamentoNotas='"+codigoAgendamento+"' >\
 							"+cont['descricao']+"\

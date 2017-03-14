@@ -221,3 +221,10 @@ input[type="submit"]{
 .teclado{
 	text-align: center;
 }
+[type="radio"].with-gap:checked + label:after{
+	border: 2px solid #4b86b4;
+    background-color: #4b86b4;
+}
+[type="radio"].with-gap:checked + label:before{
+	border: 2px solid #4b86b4;
+}

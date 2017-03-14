@@ -71,6 +71,7 @@ function destroi_secao(){
 			var estadoRede = estadoConexao();
 			if( estadoRede !== 'No network connection'){
 
+				//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 				//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
 				var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 				//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
@@ -208,10 +209,12 @@ function destroi_secao(){
 		var estadoRede = estadoConexao();
 		if( estadoRede !== 'No network connection' ){
 
+			//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 			//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
 			var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 			//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
 			var resultado = 0;
+			//console.log(JSON.stringify(LOGIN));
 			$.ajax({
 				url: page,
 				data: {
@@ -338,7 +341,7 @@ function destroi_secao(){
 	function esperaDisciplinas(){
 		if( AGENDAMENTOS === null){
 			var load = "\
-			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 30%;'>\
+			<div id='modalAgendamentos' class='modal' style='color:rgba(84, 150, 252, 0.97); background: transparent; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0); height: 100%;'>\
 	    	<div class='modal-content'>\
 				<div class='preloader-wrapper big active' style='margin-left: 40%;'>\
 				    <div class='spinner-layer spinner-blue-only'>\
@@ -446,6 +449,7 @@ function destroi_secao(){
 				<a href='#!' class='collection-item "+cores+"' id='"+opcao+"_"+codigoDisciplina+"'>"+cod['nome']+"\
 				</a>\
 			";
+
 			$("#listaDisciplinas"+opcao).append(stringListaDisciplinas);
 
 
@@ -585,7 +589,7 @@ function INICIO(){
 				      <p>Tem certeza que deseja sair?</p>\
 				    </div>\
 				    <div class='modal-footer'>\
-				      <a href='#' class='modal-action modal-close waves-effect btn' style='margin:6px;'>Não</a>\
+				   <a href='#' class='modal-action modal-close waves-effect btn' style='margin:6px;'>Não</a>\
 				      <a href='#' id='sairSim' class='waves-effect btn'>Sim</a>\
 				    </div>\
 				</div>\
@@ -954,7 +958,7 @@ function INICIO(){
 			var pin = "\
 			<div style='text-align:center;' class='tituloDoComando'></div>\
 			<div style='margin-top:50px;'>\
-				<div class='row'>\
+			<div class='row'>\
 					<div class='col s3 teclado'>\
 						<i class='mdi-image-panorama-fisheye primeiraBola'></i>\
 					</div>\

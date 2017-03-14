@@ -1,0 +1,24 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.fluxsoftwares.adxpro"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.fluxsoftwares.adxpro"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.fluxsoftwares.adxpro"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.fluxsoftwares.adxpro"
+        }
+    },
+    "dependent_plugins": {}
+}
