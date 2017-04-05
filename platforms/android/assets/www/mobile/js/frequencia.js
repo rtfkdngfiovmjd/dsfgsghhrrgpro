@@ -65,65 +65,47 @@ function carrega_frequencia (disciplina){
 			}
 		}
 
-		// controle de etapas que estao ativas
-		var dataEtapa1 = ETAPA[0].dataLimite;
-		var finalEtapa1 = new Date( dataEtapa1.split("-")[0], (dataEtapa1.split("-")[1])-1, dataEtapa1.split("-")[2], 23, 59, 59, 0 );
-		var dataInicioEtapa1 = ETAPA[0].dataInicio;
-		var inicioEtapa1 = new Date( dataInicioEtapa1.split("-")[0], (dataInicioEtapa1.split("-")[1])-1, dataInicioEtapa1.split("-")[2], 0, 0, 0, 0 );
-		var dataFimEtapa1 = ETAPA[0].dataFim;
-		var fimEtapa1 = new Date( dataFimEtapa1.split("-")[0], (dataFimEtapa1.split("-")[1])-1, dataFimEtapa1.split("-")[2], 0, 0, 0, 0 );
+		var dataEtapa = Array();
+		var finalEtapa = Array();
+		var dataInicioEtapa = Array();
+		var inicioEtapa = Array();
+		var dataFimEtapa = Array();
+		var fimEtapa = Array();
 
-		var dataEtapa2 = ETAPA[1].dataLimite;
-		var finalEtapa2 = new Date( dataEtapa2.split("-")[0], (dataEtapa2.split("-")[1])-1, dataEtapa2.split("-")[2], 23, 59, 59, 0 );
-		var dataInicioEtapa2 = ETAPA[1].dataInicio;
-		var inicioEtapa2 = new Date( dataInicioEtapa2.split("-")[0], (dataInicioEtapa2.split("-")[1])-1, dataInicioEtapa2.split("-")[2], 0, 0, 0, 0 );
-		var dataFimEtapa2 = ETAPA[1].dataFim;
-		var fimEtapa2 = new Date( dataFimEtapa2.split("-")[0], (dataFimEtapa2.split("-")[1])-1, dataFimEtapa2.split("-")[2], 0, 0, 0, 0 );
-
-		/*var dataEtapa3 = ETAPA[2].dataLimite;
-		var finalEtapa3 = new Date( dataEtapa3.split("-")[0], (dataEtapa3.split("-")[1])-1, dataEtapa3.split("-")[2], 23, 59, 59, 0 );
-		var dataInicioEtapa3 = ETAPA[2].dataInicio;
-		var inicioEtapa3 = new Date( dataInicioEtapa3.split("-")[0], (dataInicioEtapa3.split("-")[1])-1, dataInicioEtapa3.split("-")[2], 0, 0, 0, 0 );
-		var dataFimEtapa3 = ETAPA[2].dataFim;
-		var fimEtapa3 = new Date( dataFimEtapa3.split("-")[0], (dataFimEtapa3.split("-")[1])-1, dataFimEtapa3.split("-")[2], 0, 0, 0, 0 );
-*/
+		for(key in ETAPA){
+			dataEtapa[key] = ETAPA[key].dataLimite;
+			finalEtapa[key] = new Date( dataEtapa[key].split("-")[0], (dataEtapa[key].split("-")[1])-1, dataEtapa[key].split("-")[2], 23, 59, 59, 0 );
+			dataInicioEtapa[key] = ETAPA[key].dataInicio;
+			inicioEtapa[key] = new Date( dataInicioEtapa[key].split("-")[0], (dataInicioEtapa[key].split("-")[1])-1, dataInicioEtapa[key].split("-")[2], 0, 0, 0, 0 );
+			dataFimEtapa[key] = ETAPA[key].dataFim;
+			fimEtapa[key] = new Date( dataFimEtapa[key].split("-")[0], (dataFimEtapa[key].split("-")[1])-1, dataFimEtapa[key].split("-")[2], 0, 0, 0, 0 );
+		}
 
 
 		var diaDeHoje = new Date();
 
 		var dataSelecionada2 = new Date( dataSelecionada.split("/")[2], (dataSelecionada.split("/")[1])-1, dataSelecionada.split("/")[0], 0, 0, 0, 0 );
 
-		
-		if(dataSelecionada2 < fimEtapa1){
-			if(diaDeHoje > finalEtapa1){
-				if(dataSelecionada2 > inicioEtapa2){}
-				else{
-					if( $('.toast').length != 1 ){
-						toast("Data está bloqueada pela etapa.", 4000);
-					}
-					return false;
+		for(key in ETAPA){
+			if(dataSelecionada2 < fimEtapa[key]){
+				if(diaDeHoje > finalEtapa[key]){
+					if((key+1) < ETAPA.length){
+						if(dataSelecionada2 > inicioEtapa[key+1]){}
+						else if( $('.toast').length != 1 ){
+								toast("Data está bloqueada pela etapa.", 4000);
+							return false;
+						}
+				    }
+				    else{
+				    	if( $('.toast').length != 1 ){
+							toast("Data está bloqueada pela etapa.", 4000);
+						}
+						return false;
+				    }
 				}
 			}
 		}
-		else if(dataSelecionada2 < fimEtapa2){
-			if(diaDeHoje > finalEtapa2){
-				//if(dataSelecionada2 > inicioEtapa3){}
-				//else{
-					if( $('.toast').length != 1 ){
-						toast("Data está bloqueada pela etapa.", 4000);
-					}
-					return false;
-				//}
-			}
-		}
-		/*else if(dataSelecionada2 < fimEtapa3){
-			if(diaDeHoje > finalEtapa3){
-				if( $('.toast').length != 1 ){
-					toast("Data está bloqueada pela etapa.", 4000);
-				}
-				return false;
-			}
-		}*/
+
 // COMENTADO AS PARTES DA 3ª ETAPA, PQ AGR SÃO SO 2
 		if(controle == 1){
 			if( $('.toast').length != 1 ){

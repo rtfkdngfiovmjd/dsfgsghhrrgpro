@@ -4,6 +4,7 @@ var urlEscrita;
 //console.log(JSON.stringify(LOGIN));
 
 function enviarDados(){
+	//console.log(JSON.stringify(historico_agendamento));
 	if(historico_agendamento.length >0){
 
 		$.ajax({
@@ -85,19 +86,21 @@ function enviarDados(){
 		});
 	}
 	if(historico_frequencia.length >0){
-
+		//console.log(JSON.stringify(LOGIN));
+		//url: "http://35.163.117.74/adx/unidades/caratinga/mobile/professor/escrita/frequenciaModifica.php",
 		$.ajax({
 			url: urlEscrita+"frequenciaModifica.php",
 			data: {data:historico_frequencia, semestre: LOGIN.periodo_letivo, sid:LOGIN.sid},
 			dataType: "text",
 			async:false,
 			method: "post",
-		}).done(function(dados){
+		}).done(function(data){
 			/* em caso da seção expirar */
-			if(dados == "sessao expirada"){
+			if(data == "sessao expirada"){
 				console.log("Problemas de Autenticação");
 				reConectar();
-			}else{
+			}
+			else{
 				historico_frequencia = [];
 				localStorage.setItem("historico_frequencia",'[]');			
 			}
@@ -113,16 +116,20 @@ function enviarDados(){
 function reConectar(){
 	//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 	var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
-	//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
+	//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
+	//var page = "http://35.163.117.74/adx/unidades/caratinga/mobile/professor/leitura/testeConecao.php";
+			//console.log(JSON.stringify(LOGIN));
 	$.ajax({
 			url: page,
 			data: { 
 				codUsuario: LOGIN.professor,
 				id: LOGIN.id,
+				sid: LOGIN.sid,
 				versao: VERSAO
 			}, 
 			dataType: "json",
 			method: "post",
+			async:false,
 		}).done(function(data){
 			LOGIN.sid = data["sid"];
 			localStorage.setItem("login", JSON.stringify(LOGIN));
@@ -139,8 +146,8 @@ function reConectar(){
 // FUNCAO SINCRONIZACAO PARA SINCRONIZAR (BUSCAR, ATUALIZAR E ENVIAR) As informacoes do professor (LOGIN)
 function sincronizacao(inicializacao){
 
-	// url = prefix+"adx/mobile/professor/leitura/";
-	// urlEscrita = prefix+"adx/mobile/professor/escrita/";
+	//url = prefix+"adx/mobile/professor/leitura/";
+	//urlEscrita = prefix+"adx/mobile/professor/escrita/";
 	url = prefix+unidade+"/mobile/professor/leitura/";
 	//url = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/";
 	//urlEscrita = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/escrita/";
@@ -149,8 +156,8 @@ function sincronizacao(inicializacao){
 	// url = prefix+"/mobile/professor/leitura/testeConecao.php";
 	// urlEscrita = prefix+"/mobile/professor/leitura/testeConecao.php";
 
+//console.log(JSON.stringify(LOGIN))
 	enviarDados();
-
 	//AGENDAMENTOS
 	function sincroniza_agendamentos (){
 		$.ajax({

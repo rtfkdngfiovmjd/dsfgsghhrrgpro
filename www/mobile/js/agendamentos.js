@@ -146,10 +146,15 @@ function carrega_agendamentos(disciplina) {
 				$('.SelecionarHoras').on('change',function(){
 					$(".horasAPS").toggle();
 				});
-
-
 				/*codigo para inserir o valor das etapas ativas quando adicionar o agendamento*/
-					var dataEtapa1 = ETAPA[0].dataLimite;
+
+				var dataEtapaa = Array();
+				var finalEtapaa = Array();
+				for(key in ETAPA){
+					dataEtapaa[key] = ETAPA[key].dataLimite;
+					finalEtapaa[key] = new Date( dataEtapaa[key].split("-")[0], (dataEtapaa[key].split("-")[1])-1, dataEtapaa[key].split("-")[2], 0, 0, 0, 0 );
+				}
+					/*var dataEtapa1 = ETAPA[0].dataLimite;
 					var finalEtapa1 = new Date( dataEtapa1.split("-")[0], (dataEtapa1.split("-")[1])-1, dataEtapa1.split("-")[2], 0, 0, 0, 0 );
 
 					var dataEtapa2 = ETAPA[1].dataLimite;
@@ -160,50 +165,25 @@ function carrega_agendamentos(disciplina) {
 				*/
 
 					var diaDoServidor = new Date( LOGIN.dia.split("-")[0], (LOGIN.dia.split("-")[1])-1, LOGIN.dia.split("-")[2], 0, 0, 0, 0 );				
-
-
-
-					if(diaDoServidor > finalEtapa1){
-						var opcao1 = "\
-							<option id='1etapa' disabled value='1'>"+ETAPA[0].etapas+" ("+ETAPA[0].valorDaEtapa+" pontos) -Travado</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao1);
-					}else{
-						var opcao1 = "\
-							<option id='1etapa' value='1'>"+ETAPA[0].etapas+" ("+ETAPA[0].valorDaEtapa+" pontos)</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao1);
+					
+					var opcao = Array();
+					for(var i=1; i<=ETAPA.length;i++){
+						var ii = i-1;
+						var etapas = i+'etapa';
+						//console.log(finalEtapaa[ii])
+						if(diaDoServidor > finalEtapaa[ii]){
+							opcao[ii] = "\
+								<option id='"+etapas+"' disabled value='"+i+"'>"+ETAPA[ii].etapas+" ("+ETAPA[ii].valorDaEtapa+" pontos) -Travado</option>\
+							";
+							$("#colocarAsOpcoes").append(opcao[ii]);
+						}else{
+							opcao[ii] = "\
+								<option id='"+etapas+"' value='"+i+"'>"+ETAPA[ii].etapas+" ("+ETAPA[ii].valorDaEtapa+" pontos)</option>\
+							";
+							$("#colocarAsOpcoes").append(opcao[ii]);
+						}
+						//console.log(opcao[ii])
 					}
-
-
-
-					if(diaDoServidor > finalEtapa2){
-						var opcao2 = "\
-							<option id='2etapa' disabled value='2'>"+ETAPA[1].etapas+" ("+ETAPA[1].valorDaEtapa+" pontos) -Travado</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao2);
-					}else{
-						var opcao2 = "\
-							<option id='2etapa' value='2'>"+ETAPA[1].etapas+" ("+ETAPA[1].valorDaEtapa+" pontos)</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao2);
-					}
-
-
-
-					/*if(diaDoServidor > finalEtapa3){
-						var opcao3 = "\
-							<option id='3etapa' disabled value='3'>"+ETAPA[2].etapas+" ("+ETAPA[2].valorDaEtapa+" pontos) -Travado</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao3);
-					}else{
-						var opcao3 = "\
-							<option id='3etapa' value='3'>"+ETAPA[2].etapas+" ("+ETAPA[2].valorDaEtapa+" pontos)</option>\
-						";
-						$("#colocarAsOpcoes").append(opcao3);
-						
-					}*/
-						
 
 				$("#addAgendamentoFormulario").on("submit", function(){
 
@@ -258,13 +238,23 @@ function carrega_agendamentos(disciplina) {
 
 					// verifica se o usuario conseguiu selecionar uma etapa travada. Em dispositivos antigos
 					// do android o app seleciona uma etapa travada por padrao ....
-					var valor1 = $("#1etapa").html();
-					var valor2 = $("#2etapa").html();
+					var valor = Array();
+					for(var i=1; i<=ETAPA.length;i++){
+						var valEtapas = '#'+i+'etapa';
+						valor[i] = $(valEtapas).html();
+					}
+					//var valor1 = $("#1etapa").html();
+					//var valor2 = $("#2etapa").html();
 					//var valor3 = $("#3etapa").html();
 
 					
-					
-					if((valor1.search("-Travado") != -1 && stringEtapa == valor1) || stringEtapa === undefined){
+					for(var i=1; i<=ETAPA.length;i++){
+						if(valor[i].search("-Travado") != -1 && stringEtapa == valor[i]){
+							toast("Selecione uma etapa disponível.", 5000);
+							return false;
+						}
+					}
+					/*if((valor1.search("-Travado") != -1 && stringEtapa == valor1) || stringEtapa === undefined){
 						toast("Selecione uma etapa disponível.", 5000);
 						return false;
 					}

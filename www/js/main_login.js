@@ -2,12 +2,12 @@ const VERSAO = "1.0";
 
 
 
-//var prefix = "http://192.168.10.240/user/henrique/";
+//var prefix = "http://192.168.10.240/user/joaovitor/";
 var prefix = "https://adx.doctum.edu.br/adx/unidades/";
 //var prefix = "http://adx.doctum.edu.br/adx/unidades/adx_teste_ctga";
+//var prefix = "35.163.117.74/adx/unidades/";
 
 var LOGIN = JSON.parse(localStorage.getItem('login'));
-
 var unidade;
 if (LOGIN !== null) {
 	unidade = LOGIN.unidade;
@@ -21,6 +21,7 @@ function isOnlineLogin(){
 	//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php"; //TESTE!!
 	var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php"; //OFICIAL
 	//var page = prefix+"/mobile/professor/leitura/testeConecao.php"; //teste basse de dados oficial
+	//var page = "http://35.163.117.74/adx/unidades/caratinga/mobile/professor/leitura/testeConecao.php";
 	var resultado = 0;
 	$.ajax({
 		url: page,
@@ -308,6 +309,7 @@ function onDeviceReady() {
 			url: prefix+unidade+"/mobile/professor/login.php",
 			//url: prefix+"/mobile/professor/leitura/testeConecao.php",
 			//url:"http://192.168.10.240/user/joaovitor/adx/mobile/professor/login.php",
+			//url: "http://35.163.117.74/adx/unidades/caratinga/mobile/professor/login.php",
 			data: {
 				user: user,
 				senha: senha,
@@ -318,7 +320,6 @@ function onDeviceReady() {
 			method: "post",
 			}).done(function(dados){
 				if(dados[0] == "erro"){
-					console.log(dados);
 					if( $('.toast').length != 1 ){
 						toast("Login/Senha errada.", 4000);
 					}

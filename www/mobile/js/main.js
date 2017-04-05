@@ -12,8 +12,6 @@ var FREQUENCIA = {};
 var TURMA = {};
 var DATAS = {};
 
-
-
 function destroi_secao(){
 	//var page = prefix+"adx/mobile/professor/destroi_sessao.php";
 	var page = prefix+unidade+"/mobile/professor/destroi_sessao.php"; //OFICIAL
@@ -24,7 +22,7 @@ function destroi_secao(){
 		dataType: "text",
 		method: "post",
 	}).done(function(data){
-		console.log(data);
+		console.log(JSON.stringify(data));
 	}).fail(function(a,b,c){
 		console.log(a);
 		console.log(b);
@@ -75,6 +73,7 @@ function destroi_secao(){
 				//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
 				var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 				//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
+				//var page = "http://54.71.93.101/adx/unidades/caratinga/mobile/professor/leitura/testeConecao.php";
 				var resultado = 0;
 				$.ajax({
 					url: page,
@@ -208,11 +207,11 @@ function destroi_secao(){
 
 		var estadoRede = estadoConexao();
 		if( estadoRede !== 'No network connection' ){
-
 			//var page = "http://192.168.10.240/user/joaovitor/adx/mobile/professor/leitura/testeConecao.php";
 			//var page = prefix+"adx/mobile/professor/leitura/testeConecao.php";
 			var page = prefix+unidade+"/mobile/professor/leitura/testeConecao.php";
 			//var page = prefix+"/mobile/professor/leitura/testeConecao.php";
+			//var page = "http://35.163.117.74/adx/unidades/caratinga/mobile/professor/leitura/testeConecao.php";
 			var resultado = 0;
 			//console.log(JSON.stringify(LOGIN));
 			$.ajax({
@@ -251,12 +250,13 @@ function destroi_secao(){
 				LOGIN.dia = dados["data"];
 				LOGIN.sid = dados["sid"];
 				localStorage.setItem("login", JSON.stringify(LOGIN));
+				//console.log(JSON.stringify(LOGIN));
 				console.log("conectado");
 				colocarNomeProfessor("html"); //atualizar os valores de data e hora.
 				resultado = 1;
 				sincronizacao(inicializacao);
 			}).fail(function(a,b,c){
-				console.log(a);
+				console.log(JSON.stringify(a));
 				console.log(b);
 				console.log(c);
 				if( $('#modalDatas').css("display") !== undefined && $('#modalDatas').css("display") == "block"){
