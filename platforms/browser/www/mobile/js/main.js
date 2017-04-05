@@ -250,7 +250,7 @@ function destroi_secao(){
 				LOGIN.dia = dados["data"];
 				LOGIN.sid = dados["sid"];
 				localStorage.setItem("login", JSON.stringify(LOGIN));
-				//console.log(JSON.stringify(LOGIN));
+				console.log(JSON.stringify(LOGIN));
 				console.log("conectado");
 				colocarNomeProfessor("html"); //atualizar os valores de data e hora.
 				resultado = 1;
