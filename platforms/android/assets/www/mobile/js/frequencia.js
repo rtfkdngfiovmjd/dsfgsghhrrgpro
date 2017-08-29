@@ -113,7 +113,7 @@ function carrega_frequencia (disciplina){
 			}
 			return false;
 		}
-
+		
 		modifica_tela("chamada");
 		var listaDeAlunoChamada = "\
 			<form id='formModificaFrequencia'>\
